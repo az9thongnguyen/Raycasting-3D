@@ -9,4 +9,6 @@ def main():
 
 
 if __name__ == "__main__":
+    # press w,s to move
+    # press a,d to rotate
     main()
