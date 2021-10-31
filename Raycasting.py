@@ -2,7 +2,7 @@ import tkinter as tk
 import math
 from V2D import *
 
-# authur Thongnguyen
+# author Thongnguyen
 
 FOV = math.pi/3
 ROV = 120
