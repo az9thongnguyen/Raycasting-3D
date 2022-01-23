@@ -27,32 +27,6 @@ RAW_MAP = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ]
 
-WALL_COLOR = [' alice blue',
-              'lavender',
-              'powder blue',
-              'light blue',
-              'lightsky blue',
-              'sky blue',
-              'deepsky blue',
-              'lightsteel blue',
-              'dodger blue',
-              'cornflower blue',
-              'steel blue'	,
-              'cadet blue'	,
-              'mediumslate blue',
-              'slate blue'	,
-              'darkslate blue',
-              'royal blue'	,
-              'blue'	,
-              'medium blue',
-              'dark blue'	,
-              'navy'	,
-              'midnight blue']
-
-
-def wall_color(i):
-    return WALL_COLOR[int((20)*(i-50)/(300-50))]
-
 
 class Raycasting:
     def __init__(self, root) -> None:
@@ -121,7 +95,7 @@ class Raycasting:
 
             # init wall
             self.wall3D.append(self.map3d.create_rectangle(
-                x1, y1, x2, y2, fill=RAY_COLOR, outline='green'))
+                x1, y1, x2, y2, fill=RAY_COLOR, outline='blue'))
             x1 -= step_w
             x2 -= step_w
 
@@ -232,13 +206,17 @@ class Raycasting:
             ca = self.p_dir.getAngleRad() - dest.getAngleRad()
             temp = dist*math.cos(ca)
             height = 100*300/temp
-            if (height > 300):
-                height = 300
-            y1_w = 200 - height/2
-            y2_w = 200 + height/2
+            if (height > 320):
+                height = 320
+            y1_w = 225 - height/2
+            y2_w = 225 + height/2
             self.map3d.coords(self.wall3D[i], x1_w,
                               y1_w, x2_w, y2_w)
-            # self.map3d.itemconfig(self.wall3D[i], fill=wall_color(height))
+
+            if(hor > ver):
+                self.map3d.itemconfig(self.wall3D[i], fill='#00008B')
+            else:
+                self.map3d.itemconfig(self.wall3D[i], fill='#0000FF')
             x1_w -= step_w
             x2_w -= step_w
 
